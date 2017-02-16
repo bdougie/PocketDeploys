@@ -22,10 +22,10 @@ const Wrapper = styled.View`
 const style = StyleSheet.create({
   image: {
     borderRadius: 3,
-    height: 60,
+    height: 250,
     marginLeft: 10,
     marginRight: 15,
-    width: 60,
+    width: 250,
   },
 });
 
