@@ -33,7 +33,6 @@ class SitesContainer extends Component {
   render() {
     const {sites} = this.props
     const image = sites.screenshot_url || 'https://s3-us-west-1.amazonaws.com/publis-brian-images/netlify+images/placeholder.png'
-    console.log(image)
 
     return sites ?
       <Wrapper>
