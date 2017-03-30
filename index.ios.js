@@ -7,13 +7,26 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
   Text,
   View
 } from 'react-native';
 import Main from "./src";
 
-export default class PocketDeploys extends Component {
+import { StackNavigator } from 'react-navigation';
+
+const navTextColor = 'white';
+const headerBackgrounColor = '#132830';
+
+class PocketDeploys extends Component {
+  static navigationOptions = {
+    title: 'Dashboard',
+    header: () => ({
+      style: {backgroundColor: headerBackgrounColor},
+      tintColor: navTextColor,
+      left: (<Text style={{marginLeft: 10, color: navTextColor}}>Sites</Text>),
+    })
+  };
+
   render() {
     return (
       <Main />
@@ -21,23 +34,8 @@ export default class PocketDeploys extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+const PocketDeploysWithNavigation = StackNavigator({
+  Home: { screen: PocketDeploys },
 });
 
-AppRegistry.registerComponent('PocketDeploys', () => PocketDeploys);
+AppRegistry.registerComponent('PocketDeploys', () => PocketDeploysWithNavigation);
