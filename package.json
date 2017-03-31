@@ -20,8 +20,14 @@
     "styled-components": "^1.4.2"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.1",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-react-native": "^2.3.1",
     "jest": "18.1.0",
     "react-native-mock": "0.3.1",
     "react-test-renderer": "~15.4.0-rc.4"
