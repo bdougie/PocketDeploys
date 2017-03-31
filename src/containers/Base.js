@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Text, View } from 'react-native';
 import Sites from './SitesContainer'
+import Deploys from './DeploysContainer' // remove
 import styled from 'styled-components/native';
 import Card from '../components/Card.js'
 
@@ -22,7 +23,8 @@ class Base extends Component {
     return (
       <BaseStyle>
         <Card>
-          <Sites />
+          {/* <Sites /> */}
+          <Deploys />
         </Card>
       </BaseStyle>
     )

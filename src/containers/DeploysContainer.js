@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import styled from 'styled-components/native';
 import {ListView, StyleSheet, View, Text} from "react-native";
-import {fetchSites}  from '../lib/netlify-api.js';
+import {fetchDeploysBySite}  from '../lib/netlify-api.js';
 import {createContainer} from 'react-transmit';
-import Sites from "../components/Sites";
+import Deploys from "../components/Deploys";
 
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em
@@ -13,15 +13,19 @@ const StyledText = styled.Text`
   color: #00C7B7;
 `;
 
-class SitesContainer extends Component {
+class DeploysContainer extends Component {
   constructor(props) {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
   }
 
+  componentDidMount() {
+    console.log(fetchDeploysBySite('69350086-d20e-4b5a-84cf-bf367a848374'))
+  }
+
   renderRow(rowData) {
     return (
-      <Sites data={rowData} />
+      <Deploys data={rowData} />
     );
   }
 
@@ -36,9 +40,11 @@ class SitesContainer extends Component {
   }
 }
 
-export default createContainer(SitesContainer, {
+export default createContainer(DeploysContainer, {
   initialVariables: {},
   fragments: {
-    sites: () => fetchSites().then(res => res.data)
+    sites: () => fetchDeploysBySite('69350086-d20e-4b5a-84cf-bf367a848374')
+      .then(res => res.data)
   }
 })
+

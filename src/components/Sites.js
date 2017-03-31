@@ -46,7 +46,7 @@ const style = StyleSheet.create({
   },
 });
 
-const Site = ({data}) => {
+const Sites = ({data}) => {
 const time = moment(data.updated_at, 'YYYYMMDD').fromNow();
 const image = data.screenshot_url
   || 'https://s3-us-west-1.amazonaws.com/publis-brian-images/netlify+images/placeholder.png'
@@ -64,4 +64,4 @@ const image = data.screenshot_url
   )
 }
 
-export default Site;
+export default Sites;
