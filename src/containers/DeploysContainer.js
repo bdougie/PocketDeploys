@@ -35,11 +35,11 @@ class Deploys extends Component {
   }
 
   render() {
-    const {sites} = this.props
-    console.log(this.props)
-    return sites ?
+    const {deploys} = this.props
+    console.log(deploys)
+    return deploys ?
       <ListView
-        dataSource={this.ds.cloneWithRows(sites)}
+        dataSource={this.ds.cloneWithRows(deploys)}
         renderRow={(rowData) => this.renderRow(rowData)}
       />
       : <StyledText>...Loading</StyledText>;
@@ -54,7 +54,7 @@ const DeploysContainer = connectRequest((props) => ({
 
 const mapStateToProps = (state, props) => {
   return {
-    dashboard: getDeploy(state, props),
+    deploys: getDeploy(state, props),
   };
 };
 
