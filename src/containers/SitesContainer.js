@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import styled from 'styled-components/native';
 import {ListView, StyleSheet, View, Text} from "react-native";
 import {fetchSites}  from '../lib/netlify-api.js';
-import {createContainer} from 'react-transmit';
 import Site from "../components/Site";
+import gql from "graphql-tag";
+import {graphql} from "react-apollo";
 
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em
@@ -26,19 +27,26 @@ class SitesContainer extends Component {
   }
 
   render() {
-    const {sites} = this.props
-    return sites ?
+    const {data} = this.props
+    return data && data.sites != undefined ?
       <ListView
-        dataSource={this.ds.cloneWithRows(sites)}
+        dataSource={this.ds.cloneWithRows(data.sites)}
         renderRow={(rowData) => this.renderRow(rowData)}
       />
       : <StyledText>...Loading</StyledText>;
   }
 }
 
-export default createContainer(SitesContainer, {
-  initialVariables: {},
-  fragments: {
-    sites: () => fetchSites().then(res => res.data)
-  }
-})
+const SitesQuery = gql`
+  query {
+    sites {
+      name
+      updated_at
+      screenshot_url
+    }
+  }`
+;
+
+const SitesWithData = graphql(SitesQuery)(SitesContainer);
+
+export default SitesWithData;

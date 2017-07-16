@@ -7,16 +7,17 @@
     "test": "jest"
   },
   "dependencies": {
+    "apollo-client": "1.9.0-0",
     "axios": "0.15.3",
+    "graphql-tag": "2.4.2",
     "immutable": "3.8.1",
     "moment": "^2.18.1",
     "netlify-auth-js": "0.5.5",
     "react": "~15.4.0-rc.4",
+    "react-apollo": "1.4.3",
     "react-native": "0.41.0",
     "react-native-config": "0.3.1",
     "react-native-simple-store": "1.1.0",
-    "react-transmit": "3.2.0",
-    "react-transmit-native": "3.2.0",
     "styled-components": "^1.4.2"
   },
   "devDependencies": {
