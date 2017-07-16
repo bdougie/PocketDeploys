@@ -28,7 +28,6 @@ class SitesContainer extends Component {
 
   render() {
     const {data} = this.props
-    console.log(data.sites)
     return data && data.sites != undefined ?
       <ListView
         dataSource={this.ds.cloneWithRows(data.sites)}
