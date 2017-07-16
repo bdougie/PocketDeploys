@@ -6,7 +6,7 @@ import {createNetworkInterface} from 'apollo-client';
 
 // https://github.com/apollographql/GitHub-GraphQL-API-Example/blob/master/App.js
 
-const networkInterface = createNetworkInterface({uri: 'https://m1wl39p39.lp.gql.zone/graphql'});
+const networkInterface = createNetworkInterface({uri: 'https://qkvvwzq8p.lp.gql.zone/graphql'});
 const client = new ApolloClient({
   networkInterface,
   dataIdFromObject: r => r.id,
