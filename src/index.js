@@ -16,11 +16,10 @@ const Main = () => {
   return (
     <ApolloProvider client={client}>
       <View>
-        <StatusBar barStyle="light-content" />
         <Base />
       </View>
     </ApolloProvider>
   )
 }
 
-export default Main
+export default Main;

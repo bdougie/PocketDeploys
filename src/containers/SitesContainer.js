@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import styled from 'styled-components/native';
 import {ListView, StyleSheet, View, Text} from "react-native";
 import {fetchSites}  from '../lib/netlify-api.js';
-import Site from "../components/Site";
+import Sites from "../components/Sites";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 
@@ -22,13 +22,13 @@ class SitesContainer extends Component {
 
   renderRow(rowData) {
     return (
-      <Site data={rowData} />
+      <Sites data={rowData} />
     );
   }
 
   render() {
     const {data} = this.props
-    return data && data.sites != undefined ?
+    return data && data.sites !== undefined ?
       <ListView
         dataSource={this.ds.cloneWithRows(data.sites)}
         renderRow={(rowData) => this.renderRow(rowData)}
@@ -40,6 +40,7 @@ class SitesContainer extends Component {
 const SitesQuery = gql`
   query {
     sites {
+      id
       name
       updated_at
       screenshot_url

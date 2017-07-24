@@ -14,3 +14,7 @@ export function login() {
 export function fetchSites() {
   return axios.get(url, {headers})
 }
+
+export function fetchDeploysBySite(siteId) {
+  return axios.get(`${url}/sites/${siteId}/deploys`, {headers})
+}
