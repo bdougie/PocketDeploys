@@ -7,6 +7,7 @@ const StyledCard = styled.View`
   background: #fff;
   margin-right: 5;
   margin-left: 5;
+  min-height: 695;
 `;
 
 const Card = (props) => {

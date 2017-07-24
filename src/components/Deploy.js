@@ -46,20 +46,21 @@ const style = StyleSheet.create({
   },
 });
 
-const Deploys = ({data}) => {
-  const time = moment(data.updated_at, 'YYYYMMDD').fromNow();
-  const image = data.screenshot_url
-    || 'https://s3-us-west-1.amazonaws.com/publis-brian-images/netlify+images/placeholder.png'
+const Deploy = ({data}) => {
+const time = moment(data.updated_at, 'YYYYMMDD').fromNow();
+const commit = data.commit_ref.slice(0,7) || ""
+const image = data.screenshot_url
+  || 'https://s3-us-west-1.amazonaws.com/publis-brian-images/netlify+images/placeholder.png'
 
   return (
     <BaseWrapper>
       <VerticalWrapper>
         <StyledText numberOfLines={1}>{data.state}</StyledText>
-        <SubText>{data.context} deploy from {data.branch}@{data.commit_ref}</SubText>
+        <SubText>{data.context} deploy from {data.branch}@{commit}</SubText>
       </VerticalWrapper>
     </BaseWrapper>
   )
 }
 
-export default Deploys;
+export default Deploy;
 

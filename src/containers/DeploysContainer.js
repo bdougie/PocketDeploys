@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import styled from 'styled-components/native';
 import {ListView, StyleSheet, View, Text} from "react-native";
 import {fetchDeploysBySite}  from '../lib/netlify-api.js';
-import Deploys from "../components/Deploys";
+import Deploy from "../components/Deploy";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 
@@ -20,7 +20,7 @@ class DeploysContainer extends Component {
 
   renderRow(rowData) {
     return (
-      <Deploys data={rowData} />
+      <Deploy data={rowData} />
     );
   }
 
@@ -52,7 +52,7 @@ const DeploysQuery = gql`
 const DeploysWithData = graphql(DeploysQuery, {
   options: (ownProps) => ({
     variables: {
-      site_id: "102c0fe2-7e89-4902-9062-7caae2b944ec"//ownProps.site_id
+      site_id: "682a5357-ee71-4de4-a2bf-1b81dbe7810a"//ownProps.site_id
     }
   })
 })(DeploysContainer);

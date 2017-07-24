@@ -14,7 +14,7 @@ const HeaderText = styled.Text`
   margin-top: 25;
   margin-left: 10;
   font-size: 12;
-  color: #59686e;
+  color: white;
   text-align: left;
 `;
 
@@ -22,9 +22,12 @@ class Base extends Component {
   render() {
     return (
       <BaseStyle>
+       <View style={{height: 50}}>
+         <HeaderText>Sites</HeaderText>
+       </View>
         <Card>
-           <Deploys />
-          {/*<Sites />*/}
+          {/* <Deploys /> */}
+          <Sites />
         </Card>
       </BaseStyle>
     )

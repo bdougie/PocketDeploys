@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import styled from 'styled-components/native';
 import {ListView, StyleSheet, View, Text} from "react-native";
 import {fetchSites}  from '../lib/netlify-api.js';
-import Sites from "../components/Sites";
+import Site from "../components/Site";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 
@@ -22,7 +22,7 @@ class SitesContainer extends Component {
 
   renderRow(rowData) {
     return (
-      <Sites data={rowData} />
+      <Site data={rowData} />
     );
   }
 
