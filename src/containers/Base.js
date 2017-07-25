@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import { Text, View } from 'react-native';
 import Sites from './SitesContainer'
-import Deploys from './DeploysContainer' // remove
 import styled from 'styled-components/native';
 import Card from '../components/Card.js'
+import Header from '../components/Header.js'
 
 const BaseStyle = styled.View`
   background-color: #132830;
@@ -22,11 +22,8 @@ class Base extends Component {
   render() {
     return (
       <BaseStyle>
-       <View style={{height: 50}}>
-         <HeaderText>Sites</HeaderText>
-       </View>
+        <Header title="Sites" />
         <Card>
-          {/* <Deploys /> */}
           <Sites />
         </Card>
       </BaseStyle>
