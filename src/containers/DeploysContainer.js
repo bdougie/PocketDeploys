@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import {ListView, StyleSheet, View, Text} from "react-native";
 import {fetchDeploysBySite}  from '../lib/netlify-api.js';
 import Deploy from "../components/Deploy";
+import Header from '../components/Header.js'
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 
@@ -25,12 +26,16 @@ class DeploysContainer extends Component {
   }
 
   render() {
-    const {data} = this.props
+    const {data, handleClose} = this.props
     return data && data.deploys !== undefined ?
-      <ListView
-        dataSource={this.ds.cloneWithRows(data.deploys)}
-        renderRow={(rowData) => this.renderRow(rowData)}
-      />
+      <View>
+        <Header title="Deploys" action={handleClose} />
+        <ListView
+          style={{marginTop: 22}}
+          dataSource={this.ds.cloneWithRows(data.deploys)}
+          renderRow={(rowData) => this.renderRow(rowData)}
+        />
+      </View>
       : <StyledText>...Loading</StyledText>;
   }
 }
