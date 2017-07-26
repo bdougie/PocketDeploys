@@ -14,7 +14,7 @@ class SitesContainer extends Component {
   constructor(props) {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    this.state = {modalVisible: false};
+    this.state = {modalVisible: false, siteId: null};
   }
 
   renderRow(rowData) {
@@ -33,7 +33,7 @@ class SitesContainer extends Component {
         />
         <Modal
           animationType={"slide"}
-          visible={this.state.modalVisible}
+          visible={!!this.state.siteId}
         >
           {/*
               This is being rendered by a modal, which is is why
@@ -41,7 +41,10 @@ class SitesContainer extends Component {
           */}
           <BaseStyle>
             <StyledCard>
-              <DeploysContainer handleClose={this._closeDeploys} />
+              <DeploysContainer
+                siteId={this.state.siteId}
+                handleClose={this._closeDeploys}
+              />
             </StyledCard>
           </BaseStyle>
         </Modal>
@@ -49,12 +52,12 @@ class SitesContainer extends Component {
         : <ImageLoader />;
   }
 
-  _openDeploys = () => {
-    this.setState({modalVisible: true})
+  _openDeploys = (siteId) => {
+    this.setState({siteId})
   }
 
   _closeDeploys = () => {
-    this.setState({modalVisible: false})
+    this.setState({siteId: null})
   }
 }
 

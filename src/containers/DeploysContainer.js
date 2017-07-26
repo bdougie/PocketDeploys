@@ -23,6 +23,7 @@ class DeploysContainer extends Component {
 
   render() {
     const {data, handleClose} = this.props
+    console.log(data)
     return data && data.deploys !== undefined ?
       <View>
         <Header title="Deploys" action={handleClose} />
@@ -54,9 +55,9 @@ const DeploysQuery = gql`
 ;
 
 const DeploysWithData = graphql(DeploysQuery, {
-  options: (ownProps) => ({
+  options: ({siteId}) => ({
     variables: {
-      site_id: "682a5357-ee71-4de4-a2bf-1b81dbe7810a"//ownProps.site_id
+      site_id: siteId
     }
   })
 })(DeploysContainer);

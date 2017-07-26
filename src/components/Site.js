@@ -13,11 +13,12 @@ import {
 
 const Site = ({data, handleOpen}) => {
 const time = moment(data.updated_at, 'YYYYMMDD').fromNow();
+const open = () => handleOpen(data.id);
 const image = data.screenshot_url
   || 'https://s3-us-west-1.amazonaws.com/publis-brian-images/netlify+images/placeholder.png'
 
   return (
-    <TouchableWithoutFeedback onPress={handleOpen}>
+    <TouchableWithoutFeedback onPress={open}>
       <BaseWrapper>
         <ImageWrapper>
           <Image style={RNStyles.image} source={{uri: image}} />
