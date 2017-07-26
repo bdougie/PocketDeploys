@@ -6,12 +6,8 @@ import Deploy from "../components/Deploy";
 import Header from '../components/Header.js'
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
-
-const StyledText = styled.Text`
-  font-size: 65;
-  text-align: center;
-  color: #00C7B7;
-`;
+import {TextLoader} from "../components/Loader";
+import {colors} from "../styles/variables.js";
 
 class DeploysContainer extends Component {
   constructor(props) {
@@ -36,7 +32,10 @@ class DeploysContainer extends Component {
           renderRow={(rowData) => this.renderRow(rowData)}
         />
       </View>
-      : <StyledText>...Loading</StyledText>;
+        : <View>
+          <Header title="Deploys" action={handleClose} />
+        <TextLoader />
+    </View>;
   }
 }
 

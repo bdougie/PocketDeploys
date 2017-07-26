@@ -6,14 +6,9 @@ import Site from "../components/Site";
 import DeploysContainer from "../containers/DeploysContainer";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
-
-// Create a <Title> react component that renders an <h1> which is
-// centered, palevioletred and sized at 1.5em
-const StyledText = styled.Text`
-  font-size: 65;
-  text-align: center;
-  color: #00C7B7;
-`;
+import {ImageLoader} from "../components/Loader";
+import {colors} from "../styles/variables.js";
+import {BaseStyle, StyledCard} from "../styles";
 
 class SitesContainer extends Component {
   constructor(props) {
@@ -37,13 +32,21 @@ class SitesContainer extends Component {
           renderRow={(rowData) => this.renderRow(rowData)}
         />
         <Modal
-          animationSlide={"slide"}
+          animationType={"slide"}
           visible={this.state.modalVisible}
         >
-          <DeploysContainer handleClose={this._closeDeploys} />
+          {/*
+              This is being rendered by a modal, which is is why
+              the Deploy Container is inline and styling is duplicated
+          */}
+          <BaseStyle>
+            <StyledCard>
+              <DeploysContainer handleClose={this._closeDeploys} />
+            </StyledCard>
+          </BaseStyle>
         </Modal>
       </View>
-      : <StyledText>...Loading</StyledText>;
+        : <ImageLoader />;
   }
 
   _openDeploys = () => {

@@ -1,33 +1,16 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { Text, TouchableHighlight, View } from 'react-native';
 import styled from 'styled-components/native';
-
-const BaseStyle = styled.View`
-  background-color: #132830;
-  flex-direction: row;
-`;
-
-const HeaderText = styled.Text`
-  height: 20;
-  margin-top: 25;
-  margin-left: 10;
-  font-size: 12;
-  color: white;
-  text-align: left;
-`;
-
-const ActionText = styled.Text`
-  height: 20;
-  margin-top: 25;
-  margin-left: 10;
-  font-size: 12;
-  color: red;
-  text-align: right;
-`;
+import RNStyles from "../styles/rnStyles.js";
+import {
+  ActionText,
+  HeaderText,
+  HeaderStyle,
+} from "../styles";
 
 const Header = ({title, action}) => (
-  <BaseStyle>
-   <View style={{flexDirection: 'row', height: 50}}>
+  <HeaderStyle>
+   <View style={RNStyles.header}>
      <HeaderText>{title}</HeaderText>
      {action &&
        <TouchableHighlight onPress={action}>
@@ -35,7 +18,7 @@ const Header = ({title, action}) => (
        </TouchableHighlight>
      }
    </View>
-  </BaseStyle>
+  </HeaderStyle>
 );
 
 export default Header;

@@ -16,6 +16,10 @@ const Main = () => {
   return (
     <ApolloProvider client={client}>
       <View>
+        <StatusBar
+         backgroundColor="blue"
+         barStyle="light-content"
+        />
         <Base />
       </View>
     </ApolloProvider>
